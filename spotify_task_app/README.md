@@ -54,8 +54,8 @@ Ensure you have the following installed:
 1. Clone the Repository
 
 ```sh
-git clone git@github.com:MaryannO1992/CFG_group2_project.git
-cd CFG_group2_project
+git clone git@github.com:Gracie-Fenemer/spotify_task_app.git
+cd spotify_task_app
 ```
 
 2. Set up a virtual environment (recommended)
