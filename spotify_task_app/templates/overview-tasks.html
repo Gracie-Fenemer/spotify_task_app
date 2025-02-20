@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview Tasks</title>
+    <link rel="stylesheet" href="{{ url_for('bootstrap.static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Tasks Overview</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Owner</th>
+                <th>Tag</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.task_name }}</td>
+                    <td>{{ task.task_description }}</td>
+                    <td>{{ task.task_due }}</td>
+                    <td>{{ task.task_owner if task.task_owner else 'Unclaimed' }}</td>
+                    <td>{{ task.task_tag }}</td>
+                    <td>{{ task.task_status }}</td>
+                    <td>
+                        {% if not task.task_owner %}
+                            <form action="{{ url_for('claim_task', task_id=task.task_id) }}" method="post" style="display:inline;">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                                <button type="submit" class="btn btn-primary">Claim</button>
+                            </form>
+                        {% endif %}
+                        <a href="{{ url_for('update_task', task_id=task.task_id) }}" class="btn btn-secondary">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_task') }}" class="btn btn-primary">Add Task</a>
+    <a href="{{ url_for('app_home') }}" class="btn btn-primary">Home</a>
+    <a href="{{ url_for('archived_tasks') }}" class="btn btn-primary">Archived Tasks</a>
+</div>
+<script src="{{ url_for('bootstrap.static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Finance Playlists</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+        <h1>Childcare Playlists</h1>
+        <h3>Click the link to open in spotify</h3>
+
+        {{ playlist_html | safe }}
+        <br>
+        <script>
+        function GoToSite() {
+            window.location.href = "http://localhost:5003/home_page/logout";
+        }
+        </script>
+        <button id="logout" onclick="GoToSite()">Logout</button>
+    </body>
+    </html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Goal</title>
+    <link rel="stylesheet" href="{{ url_for('bootstrap.static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Update Goal</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.progress.label }} {{ form.progress(class="form-control") }}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    <br>
+    <a href="{{ url_for('app_home') }}" class="btn btn-primary">Home</a>
+</div>
+<script src="{{ url_for('bootstrap.static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

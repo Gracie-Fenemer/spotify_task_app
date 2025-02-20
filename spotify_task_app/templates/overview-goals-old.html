@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview Goals</title>
+    <link rel="stylesheet" href="{{ url_for('bootstrap.static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Overview Goals</h1>
+    <ul>
+        {% for goal in goals %}
+            <li>
+                {{ goal.goal_name }} - {{ goal.goal_target }} - {{ goal.goal_progress }}
+                <a href="{{ url_for('update_goal', goal_id=goal.goal_id) }}" class="btn btn-secondary">Update</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_goal') }}" class="btn btn-primary">Add Goal</a>
+
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a>
+</div>
+<script src="{{ url_for('bootstrap.static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

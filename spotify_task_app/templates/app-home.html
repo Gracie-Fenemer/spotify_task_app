@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Manager</title>
+    <link rel="stylesheet" href="{{ url_for('bootstrap.static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-200">
+        <div class="container text-center">
+            <h1>Welcome to The Manager</h1>
+            <img src="{{ url_for('static', filename='images/todo.jpeg') }}" alt="Welcome Image" class="img-fluid" style="max-width: 500px;">
+            <div class="mt-3">
+                <a href="{{ url_for('overview_tasks') }}" class="btn btn-primary">View Tasks</a>
+                <a href="{{ url_for('overview_goals') }}" class="btn btn-primary">View Goals</a>
+                <a href="{{ url_for('spotify_home') }}" class="btn btn-primary">Playlists</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('bootstrap.static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

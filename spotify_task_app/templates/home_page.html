@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Music</title>
+          <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+      </head>
+      <body>
+          <h1>Music</h1>
+          <script>
+          function GoToSite() {
+              window.location = document.getElementById("Tasks").value;
+          }
+          function Redirect() {
+              window.location.href = "http://localhost:5003/home_page/logout";
+          }
+          </script>
+          <br>
+          <label for="album">Choose the task type to get an album/playlist:</label>
+          <select id="Tasks">
+            <option value="http://localhost:5003/home_page/cleaning">Cleaning</option>
+            <option value="http://localhost:5003/home_page/cooking">Cooking</option>
+            <option value="http://localhost:5003/home_page/gardening">Gardening</option>
+            <option value="http://localhost:5003/home_page/shopping">Shopping</option>
+            <option value="http://localhost:5003/home_page/laundry">Laundry</option>
+            <option value="http://localhost:5003/home_page/diy">DIY</option>
+            <option value="http://localhost:5003/home_page/finance">Finance</option>
+            <option value="http://localhost:5003/home_page/home">Home</option>
+            <option value="http://localhost:5003/home_page/pets">Pets</option>
+            <option value="http://localhost:5003/home_page/childcare">Childcare</option>
+          </select>
+          <button id="go" onclick="GoToSite()">Go</button>
+          <br>
+          <br>
+          <button id="logout" onclick="Redirect()">Logout</button>
+      </body>
+      </html>

@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('bootstrap.static', filename='css/bootstrap.min.css') }}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-200">
+        <div class="container text-center">
+            <h1>Sign up for The Manager</h1>
+
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                            <li class="flash {{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form method ='POST' action="{{ url_for('signup') }}">
+                {{ form.hidden_tag() }}
+                {{ form.csrf_token }}
+                <div class="form-group'">
+                    {{ form.username.label }} {{ form.username(size=32, class="form-control") }}
+                </div>
+                <br>
+                <div class="form-group">
+                    {{ form.password.label }} {{ form.password(size=32, class="form-control") }}
+                </div>
+                <br>
+                <div class="form-group">
+                    {{ form.name.label }} {{ form.name(size=32, class="form-control") }}
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+
+            <p>Already have an account? <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
